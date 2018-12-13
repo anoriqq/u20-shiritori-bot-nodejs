@@ -7,6 +7,9 @@
   "license": "NYSL",
   "dependencies": {
     "discord.js": "^11.4.2",
-    "dotenv": "^6.2.0"
+    "dotenv": "^6.2.0",
+    "pg": "^7.7.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.42.0"
   }
 }

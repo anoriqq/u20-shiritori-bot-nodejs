@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/show0317sw/u20-shiritori-bot.git",
   "author": "show0317sw <tunakan_8584@yahoo.co.jp>",
-  "license": "NYSL"
+  "license": "NYSL",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
 }

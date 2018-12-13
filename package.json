@@ -6,6 +6,7 @@
   "author": "show0317sw <tunakan_8584@yahoo.co.jp>",
   "license": "NYSL",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "dotenv": "^6.2.0"
   }
 }

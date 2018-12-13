@@ -1,0 +1,8 @@
+{
+  "name": "u20-shiritori-bot-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/show0317sw/u20-shiritori-bot.git",
+  "author": "show0317sw <tunakan_8584@yahoo.co.jp>",
+  "license": "NYSL"
+}

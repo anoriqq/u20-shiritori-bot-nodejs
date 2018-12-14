@@ -3,18 +3,51 @@ require('dotenv').config()
 
 /* モジュールの読み込み */
 const Discord = require('discord.js');
+const shiritori = require('./lib/shiritori');
+const command = require('./lib/command');
 
-/* Discord Client 作成 */
+/* clientインスタンス作成 */
 const client = new Discord.Client();
-const token = process.env.DISCORD_TOKEN;
+
+/* モデルの読み込み */
+const Message = require('./models/message');
+const Channel = require('./models/channel');
+Message.sync();
+Channel.sync();
 
 /* メッセージを受け取ったときの処理 */
 client.on('message', message=>{
-  /* bot自信の発言を無視 */
-  if(message.author.bot){
-    return;
-  }
+  /* bot自身の発言を無視 */
+  if(message.author.bot) return;
+  /* しりとり用チャンネル以外の発言を無視 */
+  Channel.findOne({
+    where: {
+      id: message.channel.id
+    }
+  }).then(channel=>{
+    /* しりとりチャンネルでの発言の場合 */
+    if(channel !== null){
+      /* '//'から始まる発言を無視 */
+      if(message.content.startsWith('//')) return;
+      /* 最新の単語の最初の文字が'!'の場合 コマンド実行 */
+      if(message.content.startsWith('!')){
+        command(message);
+        return;
+      }
+      shiritori(message);
+    }else
+    /* 最新の単語の最初の文字が'!add'の場合 コマンド実行 */
+    if(message.content.startsWith('!add')){
+      command(message);
+    }
+  });
 });
 
+/* 起動時にログ出力 */
+client.on('ready', ()=>{
+  console.log(`Logged in as ${client.user.tag}!`);
+})
+
 /* ログイン */
+const token = process.env.DISCORD_TOKEN;
 client.login(token);

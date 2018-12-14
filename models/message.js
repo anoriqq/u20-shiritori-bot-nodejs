@@ -8,6 +8,10 @@ const Message = loader.database.define('messages', {
     primaryKey: true,
     autoIncrement: true
   },
+  channel_id: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   message: {
     type: Sequelize.STRING,
     allowNull: false

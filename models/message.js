@@ -16,6 +16,10 @@ const Message = loader.database.define('messages', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  reading: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   created_at:Sequelize.DATE
 }, {
   freezeTableName: true,

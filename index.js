@@ -45,7 +45,8 @@ client.on('message', message=>{
 
 /* 起動時にログ出力 */
 client.on('ready', ()=>{
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}`);
+  client.user.setPresence({ game: { name: '!help : ヘルプを表示', type: 'PLAYING' }})
 })
 
 /* ログイン */

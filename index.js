@@ -43,9 +43,12 @@ client.on('message', message=>{
   });
 });
 
-/* 起動時にログ出力 */
+/* 起動時の処理 */
 client.on('ready', ()=>{
+  /* ログ出力 */
   console.log(`Logged in as ${client.user.tag}`);
+
+  /* botにゲームを追加 */
   client.user.setPresence({ game: { name: '!help : ヘルプを表示', type: 'PLAYING' }})
 })
 

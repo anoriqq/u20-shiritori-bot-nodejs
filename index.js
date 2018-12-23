@@ -3,7 +3,7 @@ require('dotenv').config()
 
 /* モジュールの読み込み */
 const Discord = require('discord.js');
-const shiritori = require('./lib/shiritori.1');
+const shiritori = require('./lib/shiritori');
 const command = require('./lib/command');
 
 /* clientインスタンス作成 */
@@ -22,7 +22,7 @@ Reading.sync();
 /* メッセージを受け取ったときの処理 */
 client.on('message', message=>{
   /* bot自身の発言を無視 */
-  if(message.author.bot) return;
+  if(message.author.bot || message.mentions.users.size > 0) return;
   /* しりとり用チャンネル以外の発言を無視 */
   Channel.findOne({
     where: {

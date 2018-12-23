@@ -12,8 +12,10 @@ const client = new Discord.Client();
 /* モデルの読み込み */
 const Message = require('./models/message');
 const Channel = require('./models/channel');
+const unparsableMessage = require('./models/unparsableMessage');
 Message.sync();
 Channel.sync();
+unparsableMessage.sync();
 
 /* メッセージを受け取ったときの処理 */
 client.on('message', message=>{

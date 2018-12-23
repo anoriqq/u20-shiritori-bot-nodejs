@@ -20,12 +20,15 @@ const Message = loader.database.define('messages', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  created_at:Sequelize.DATE
+  created_at:Sequelize.DATE,
+  deleted_at:Sequelize.DATE
 }, {
   freezeTableName: true,
   timestamps: true,
   createdAt: 'created_at',
   updatedAt: false,
+  deletedAt: 'deleted_at',
+  paranoid: true
 });
 
 module.exports = Message;

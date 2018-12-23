@@ -3,7 +3,7 @@ require('dotenv').config()
 
 /* モジュールの読み込み */
 const Discord = require('discord.js');
-const shiritori = require('./lib/shiritori');
+const shiritori = require('./lib/shiritori.1');
 const command = require('./lib/command');
 
 /* clientインスタンス作成 */
@@ -13,9 +13,11 @@ const client = new Discord.Client();
 const Message = require('./models/message');
 const Channel = require('./models/channel');
 const unparsableMessage = require('./models/unparsableMessage');
+const Reading = require('./models/reading');
 Message.sync();
 Channel.sync();
 unparsableMessage.sync();
+Reading.sync();
 
 /* メッセージを受け取ったときの処理 */
 client.on('message', message=>{

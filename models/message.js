@@ -16,7 +16,11 @@ const Message = loader.database.define('messages', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  reading: {
+  first: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  last: {
     type: Sequelize.STRING,
     allowNull: false
   },

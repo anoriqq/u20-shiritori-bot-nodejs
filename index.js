@@ -19,6 +19,9 @@ Channel.sync();
 unparsableMessage.sync();
 Reading.sync();
 
+// エラー処理
+client.on('error', console.error);
+
 /* メッセージを受け取ったときの処理 */
 client.on('message', message=>{
   /* bot自身の発言を無視 */
